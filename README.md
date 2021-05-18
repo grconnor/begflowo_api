@@ -32,9 +32,9 @@ $ bundle install
 $ rails s
 ```
 
-## Updates/Improvements
+## Updates/Improvements/ToDo:
 
-- 
+- Remove pings controller and routes later on.
 - 
 - 
 
