@@ -4,5 +4,7 @@ Rails.application.routes.draw do
     namespace :v0 do
       resources :pings, onle: [:index], constraints: { format: 'json' }
     end
+    namespace :v1 do
+    end
   end
 end
