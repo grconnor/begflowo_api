@@ -2,13 +2,15 @@ require "rails_helper"
 
 RSpec.describe User, type: :model do
   
-  it "should have valid factory" do
-    expect(FactoryBot.create(:user)).to be_valid
+  describe 'factory' do
+    it "should have valid factory" do
+      expect(FactoryBot.create(:user)).to be_valid
+    end
   end
 
-  describe "Database table" do
-    it { is_expected.to have_db_column :email }
+  describe "database table" do
     it { is_expected.to have_db_column :name }
+    it { is_expected.to have_db_column :email }
     it { is_expected.to have_db_column :tokens }
     it { is_expected.to have_db_column :encrypted_password }
   end
@@ -16,6 +18,10 @@ RSpec.describe User, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of :email }
     it { is_expected.to validate_presence_of :password }
+  end
+
+  describe 'relations' do
+    it { is_expected.to have_many :car_data }
   end
 
   context "should not have an invalid email address" do
