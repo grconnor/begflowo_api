@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :pings, only: [:index], constraints: { format: 'json' }
     end
     namespace :v1 do
+      resources :car_data, only: [:create]
     end
   end
 end
