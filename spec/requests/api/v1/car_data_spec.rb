@@ -32,4 +32,33 @@ RSpec.describe Api::V1::CarDataController, type: :request do
     end
 
   end
+
+  describe 'GET /api/v1/car_data' do
+    let!(:existing_entries) do
+      5.times do
+        create(:car_data, data: { 
+        "regnum" => "ABC123",
+        "ordernum" => "00001",
+        "make" => "Mercedes",
+        "model" => "C63 AMG",
+        "year" => 2021,
+        "color" => "Black",
+        "mileage" => "1020 km"
+        },
+        user: user)
+      end
+    end
+
+    before do
+      get '/api/v1/car_data', headers: headers
+    end
+
+    it 'returns a 200 response status' do
+      expect(response).to have_http_status 200
+    end
+
+    it 'returns a collection of car data' do
+      expect(response_json['entries'].count).to eq 5
+    end
+  end
 end

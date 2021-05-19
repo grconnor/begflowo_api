@@ -9,6 +9,13 @@ class Api::V1::CarDataController < ApplicationController
     end
   end
 
+  def index
+    debugger
+    collection = current_user.car_data
+    render json: { entries: collection }
+    debugger
+  end
+
   private
 
   def car_data_params
