@@ -7,7 +7,8 @@ RSpec.describe 'POST /api/v1/auth',type: :request do
         params: {
           email: 'example@gmail.com',
           password: 'password',
-          password_confirmation: 'password'
+          password_confirmation: 'password',
+          name: 'Connor'
         },
         headers: headers
     end
@@ -28,7 +29,8 @@ RSpec.describe 'POST /api/v1/auth',type: :request do
           params: {
             email: 'example@gmail.com',
             password: 'password',
-            password_confirmation: 'incorrectpassword'
+            password_confirmation: 'incorrectpassword',
+            name: 'Connor'
           },
           headers: headers
       end
@@ -48,7 +50,8 @@ RSpec.describe 'POST /api/v1/auth',type: :request do
           params: {
             email: 'example@gmail',
             password: 'password',
-            password_confirmation: 'password'
+            password_confirmation: 'password',
+            name: 'Connor'
           },
           headers: headers
       end
@@ -70,7 +73,8 @@ RSpec.describe 'POST /api/v1/auth',type: :request do
           params: {
             email: 'connorroelofsen@gmail.com',
             password: 'password',
-            password_confirmation: 'password'
+            password_confirmation: 'password',
+            name: 'Connor'
           },
           headers: headers
       end
